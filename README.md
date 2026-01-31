@@ -2,7 +2,7 @@
 
 A minimal research thread on **representation-free structural invariance**.
 
-This repository explores a strict idea:
+This repository explores a strict operational idea:
 
 **Mathematical truth is what remains invariant under arbitrary recodings.**
 
@@ -16,8 +16,7 @@ The goal is to study mathematics as:
 - residual structure
 - representation-independent constraints
 
-This is not philosophy.
-This is an operational direction: measure what survives encoding.
+No metaphors. Only measurable residue.
 
 ---
 
@@ -25,11 +24,11 @@ This is an operational direction: measure what survives encoding.
 
 Given an object `X`, apply a family of representation changes:
 
-- base change (future)
 - permutation
-- compression
-- re-encoding
-- re-tokenization
+- reversal
+- encoding shifts
+- compression-preserving recodings
+- (future) base changes, token shifts
 
 Then measure the invariant residue:
 
@@ -51,51 +50,84 @@ Only the invariant residue matters.
 
 ---
 
-## Minimal Operational Core
+## Modules
 
-The repository provides a first executable toy kernel:
+### 1) Toy Residue Consensus (`invariance.py`)
 
-- `transform_family(x)` generates recodings
-- `invariant_residue(x)` measures consensus residue
+A first executable kernel:
+
+- generates simple recodings
+- measures consensus on structural features
 
 Output:
 
 - `residue_score ∈ [0,1]`
 
-Where:
-
-- `1.0` = fully invariant under the transform family  
-- `0.0` = no stable residue detected
-
 This is a seed, not a final metric.
 
 ---
 
-## Files
+### 2) Omega-like Residue Estimator (`omega_residue.py`)
 
-- `invariance.py`  
-  Minimal representation-free residue estimator
+A more meaningful step:
 
-- `examples/minimal_demo.py`  
-  Small batch demo over multiple inputs
+Residue is measured **without symbolic equality**.
+
+Key idea:
+
+If structure is invariant, its **compressibility profile**
+remains stable under recodings.
+
+We compute:
+
+- compression sizes across transforms
+- variance of those sizes
+- an Omega-like score:
+
+```text
+omega_score = 1 / (1 + variance)
+
+Output:
+
+omega_score ∈ (0,1]
+
+higher = more invariant structural residue
+
+
+This is an operational bridge toward Ω-residue measurement.
+
 
 ---
 
-## Quick Run (10 seconds)
+Files
+
+invariance.py Minimal representation-free residue score (toy)
+
+omega_residue.py Omega-like residue via compression stability
+
+examples/minimal_demo.py Demo for residue_score
+
+examples/omega_demo.py Demo for omega_score
+
+
+
+---
+
+Quick Run (10 seconds)
 
 Run:
 
-```bash
 python invariance.py
 python examples/minimal_demo.py
 
+python omega_residue.py
+python examples/omega_demo.py
+
 You will see:
 
-length consensus
+consensus residue scores
 
-character-bag consensus
-
-residue_score
+compression-based Omega-like residue scores
 
 
 
@@ -126,10 +158,20 @@ Only representation-free invariance as a standalone seed.
 
 Status
 
-Frozen seed. Next step (optional): replace toy consensus with a true Omega-like estimator.
+Operational seed complete.
+
+Next steps (optional):
+
+richer transform families
+
+true superposition residue estimators
+
+formal stop/saturation certificates
+
 
 
 ---
 
 Author: Massimiliano Brighindi
 Signature: MB-X.01 / TruthΩ
+
