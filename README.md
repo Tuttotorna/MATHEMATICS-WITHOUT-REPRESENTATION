@@ -1,5 +1,11 @@
 # MATHEMATICS-WITHOUT-REPRESENTATION
 
+## DOI
+
+This software release is archived on Zenodo.
+
+**DOI:** https://doi.org/10.5281/zenodo.18443670
+
 **Representation-Free Residue as an Operational Invariance Metric**
 
 Most mathematics relies on specific encodings:
