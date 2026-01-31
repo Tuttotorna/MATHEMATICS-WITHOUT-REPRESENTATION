@@ -168,6 +168,19 @@ true superposition residue estimators
 
 formal stop/saturation certificates
 
+---
+
+## Larger Context (OMNIA / MB-X.01)
+
+This repository is a minimal standalone seed on representation-free invariance.
+
+A larger structural measurement ecosystem (Ω-residue, saturation limits, stop certificates)
+is developed in the main OMNIA project:
+
+https://github.com/Tuttotorna/lon-mirror
+
+This repo remains intentionally lightweight and dependency-free.
+
 
 
 ---
