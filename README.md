@@ -94,18 +94,19 @@ It is meant as a standalone executable seed, not a full framework.
 
 ---
 
-Larger Context (OMNIA / MB-X.01)
+## Larger Context (OMNIA / MB-X.01)
 
 This repository is a minimal standalone seed on representation-free invariance.
 
-A larger structural measurement ecosystem (Ω-residue, saturation limits, stop certificates) is developed in the main OMNIA project:
+A larger structural measurement ecosystem (Ω-residue, saturation limits, stop certificates)
+is developed in the main OMNIA project:
 
-Main OMNIA repository: https://github.com/Tuttotorna/lon-mirror
+Main OMNIA repository:
+https://github.com/Tuttotorna/lon-mirror
 
 This repo remains intentionally lightweight and entry-level.
 
+## Author
 
----
-
-Author: Massimiliano Brighindi
-Signature: MB-X.01 / TruthΩ
+Massimiliano Brighindi  
+MB-X.01 / TruthΩ
