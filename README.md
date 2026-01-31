@@ -1,6 +1,6 @@
 # MATHEMATICS-WITHOUT-REPRESENTATION
 
-Representation-Free Residue as an Operational Invariance Metric.
+**Representation-Free Residue as an Operational Invariance Metric**
 
 Most mathematics relies on specific encodings:
 
@@ -10,7 +10,10 @@ Most mathematics relies on specific encodings:
 
 This repository explores an alternate operational direction:
 
-**Truth(X) = what remains invariant across arbitrary recodings.**
+> **Truth(X) = what remains invariant across arbitrary recodings.**
+
+Instead of fixing a single representation, we measure the **structural residue**
+that survives transformation families.
 
 ---
 
@@ -21,31 +24,42 @@ Given an object **X**, apply representation changes:
 - base shifts  
 - permutations  
 - reversals  
+- encoding swaps  
 - compression-preserving recodings  
 
-The **representation-free residue** is what survives these transformations.
+Then define:
+
+- **Residue(X)** = invariant part under these transformations  
+- **Truth(X)** = representation-free structural stability  
 
 ---
 
 ## Minimal Operational Seed
 
-This repo provides executable toy estimators:
+This repo provides two executable toy estimators:
 
-- `residue_score`  
-  (consensus under simple recodings)
+### `residue_score`
+A simple consensus measure under basic recodings.
 
-- `omega_score`  
-  (compression-stability residue, Omega-like)
+### `omega_score`
+An Omega-like compression-stability residue:
+
+- high Ω → stable structure survives recoding  
+- low Ω → collapse toward noise / drift  
+
+Compression acts as a practical probe:
+
+> **Structure = what remains compressible and invariant.**
 
 ---
 
 ## Files
 
 - `invariance.py`  
-  Minimal invariance / residue estimators.
+  Minimal invariance + residue estimators.
 
 - `README.md`  
-  Concept + usage.
+  Concept, usage, context.
 
 ---
 
@@ -56,15 +70,15 @@ from invariance import residue_score, omega_score
 
 x = "mathematical structure"
 
-print(residue_score(x))
-print(omega_score(x))
+print("Residue score:", residue_score(x))
+print("Omega score:", omega_score(x))
 
 
 ---
 
 Status
 
-This is an intentionally minimal research seed:
+This repository is intentionally minimal:
 
 dependency-free
 
@@ -74,6 +88,8 @@ representation-agnostic
 
 focused only on invariance residue
 
+
+It is meant as a standalone executable seed, not a full framework.
 
 
 ---
@@ -85,6 +101,8 @@ This repository is a minimal standalone seed on representation-free invariance.
 A larger structural measurement ecosystem (Ω-residue, saturation limits, stop certificates) is developed in the main OMNIA project:
 
 Main OMNIA repository: https://github.com/Tuttotorna/lon-mirror
+
+This repo remains intentionally lightweight and entry-level.
 
 
 ---
