@@ -60,38 +60,36 @@ Concept, usage, context.
 
 ## Quick Example
 
-```python
-from invariance import residue_score, omega_score
+    from invariance import residue_score, omega_score
 
-x = "mathematical structure"
+    x = "mathematical structure"
 
-print("Residue score:", residue_score(x))
-print("Omega score:", omega_score(x))
-
+    print("Residue score:", residue_score(x))
+    print("Omega score:", omega_score(x))
 
 ---
 
-Status
+## Status
 
-This repository is intentionally minimal: dependency-free, post-hoc, representation-agnostic.
+This repository is intentionally minimal:
+dependency-free, post-hoc, representation-agnostic.
 
 It is meant as a standalone executable seed, not a full framework.
 
-
 ---
 
-Larger Context (OMNIA / MB-X.01)
+## Larger Context (OMNIA / MB-X.01)
 
 This repository is a minimal standalone seed on representation-free invariance.
 
-A larger structural measurement ecosystem (Ω-residue, saturation limits, stop certificates) is developed in the main OMNIA project:
+A larger structural measurement ecosystem (Ω-residue, saturation limits, stop certificates)
+is developed in the main OMNIA project:
 
 https://github.com/Tuttotorna/lon-mirror
 
-
 ---
 
-Author
+## Author
 
-Massimiliano Brighindi
+Massimiliano Brighindi  
 MB-X.01 / TruthΩ
