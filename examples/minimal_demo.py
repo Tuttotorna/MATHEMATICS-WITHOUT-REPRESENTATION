@@ -18,14 +18,15 @@ def main():
 
     for i, x in enumerate(samples, 1):
         r = invariant_residue(x)
+
         print(f"\n--- Sample {i} ---")
         print("Input:", r["input"])
         print("Transforms:", r["n_transforms"])
-        print("Residue size:", r["residue_size"])
-        if r["residue_size"] == 0:
-            print("Residue: (none in this toy setup)")
-        else:
-            print("Residue:", r["residue"])
+        print("len_mode:", r["len_mode"])
+        print("bag_mode:", r["bag_mode"])
+        print("len_consensus:", r["len_consensus"])
+        print("bag_consensus:", r["bag_consensus"])
+        print("residue_score:", r["residue_score"])
 
 
 if __name__ == "__main__":
