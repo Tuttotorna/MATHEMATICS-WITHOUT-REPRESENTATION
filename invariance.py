@@ -6,6 +6,9 @@ Measure what remains stable under arbitrary recodings.
 
 This is not semantics.
 This is structural residue.
+
+Run:
+  python invariance.py
 """
 
 import hashlib
@@ -39,33 +42,59 @@ def transform_family(x):
 
 def invariant_residue(x):
     """
-    Compute invariant residue as intersection of fingerprints
-    across transformations.
+    Compute a toy invariant residue score under recodings.
 
-    In this minimal version:
-    residue = set of hashes that remain identical.
+    We avoid strict hash equality (too brittle).
+    We measure consensus on simple structural features:
+      - length (after stripping spaces)
+      - character multiset (sorted chars, after stripping spaces)
+
+    Output:
+      residue_score in [0,1]
+      consensus features that survived across transforms
     """
     outputs = transform_family(x)
-    hashes = [fingerprint(o) for o in outputs]
 
-    # Invariant = hashes that appear more than once
-    residue = {h for h in hashes if hashes.count(h) > 1}
+    feats = []
+    for o in outputs:
+        s = str(o).replace(" ", "")
+        feats.append(
+            {
+                "len": len(s),
+                "bag": "".join(sorted(s)),
+            }
+        )
+
+    lens = [f["len"] for f in feats]
+    bags = [f["bag"] for f in feats]
+
+    len_mode = max(set(lens), key=lens.count)
+    bag_mode = max(set(bags), key=bags.count)
+
+    len_consensus = lens.count(len_mode) / len(lens)
+    bag_consensus = bags.count(bag_mode) / len(bags)
+
+    # strict multiplicative gate
+    residue_score = len_consensus * bag_consensus
 
     return {
         "input": x,
         "n_transforms": len(outputs),
-        "hashes": hashes,
-        "residue": list(residue),
-        "residue_size": len(residue),
+        "len_mode": len_mode,
+        "bag_mode": bag_mode,
+        "len_consensus": round(len_consensus, 4),
+        "bag_consensus": round(bag_consensus, 4),
+        "residue_score": round(residue_score, 4),
     }
 
 
 if __name__ == "__main__":
     demo = "Mathematics is not its encoding."
-    result = invariant_residue(demo)
+    r = invariant_residue(demo)
 
     print("=== Representation-Free Invariance Demo ===")
-    print("Input:", result["input"])
-    print("Transforms:", result["n_transforms"])
-    print("Residue size:", result["residue_size"])
-    print("Residue:", result["residue"])
+    print("Input:", r["input"])
+    print("Transforms:", r["n_transforms"])
+    print("len_consensus:", r["len_consensus"])
+    print("bag_consensus:", r["bag_consensus"])
+    print("residue_score:", r["residue_score"])
