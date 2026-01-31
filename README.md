@@ -179,13 +179,6 @@ formal stop/saturation certificates
 
 ---
 
-This repository is a minimal standalone seed on representation-free invariance.
-
-A larger structural measurement ecosystem (Ω-residue, saturation limits, stop certificates)
-is developed in the main OMNIA project:
-
-Main OMNIA repository: https://github.com/Tuttotorna/lon-mirror
-
 
 Author: Massimiliano Brighindi
 Signature: MB-X.01 / TruthΩ
